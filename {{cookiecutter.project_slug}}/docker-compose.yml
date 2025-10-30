@@ -259,7 +259,7 @@ services:
 
 {% if cookiecutter.use_broker == "rabbitmq" %}
   rabbitmq:
-    image: rabbitmq:3.13-management
+    image: rabbitmq:4.2-management
     container_name: {{ cookiecutter.project_slug }}-rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: guest
