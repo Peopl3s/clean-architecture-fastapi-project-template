@@ -4,29 +4,40 @@
     "config:recommended",
     ":dependencyDashboard"
   ],
-
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
-
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
   "commitMessagePrefix": "chore(deps): ",
-  "stabilityDays": 1,
-
+  "minimumReleaseAge": "1 day",
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
+      "matchManagers": [
+        "github-actions"
+      ],
       "groupName": "GitHub Actions updates",
-      "schedule": ["* 2 * * *"]
+      "schedule": [
+        "* 2 * * *"
+      ]
     },
     {
-      "matchManagers": ["dockerfile"],
+      "matchManagers": [
+        "dockerfile"
+      ],
       "groupName": "Docker image updates",
-      "schedule": ["* 2 * * *"]
+      "schedule": [
+        "* 2 * * *"
+      ]
     },
     {
-      "matchManagers": ["pip_requirements"],
+      "matchManagers": [
+        "pip_requirements"
+      ],
       "groupName": "Python dependencies",
-      "schedule": ["* 2 * * *"]
+      "schedule": [
+        "* 2 * * *"
+      ]
     }
   ]
 }
