@@ -228,7 +228,7 @@ services:
       - {{ cookiecutter.project_slug }}-network
 
   kafka:
-    image: confluentinc/cp-kafka:7.4.0
+    image: confluentinc/cp-kafka:7.9.4
     container_name: {{ cookiecutter.project_slug }}-kafka
     depends_on:
       zookeeper:
