@@ -91,7 +91,7 @@ services:
 
 {% if cookiecutter.use_database == "mysql" %}
   mysql:
-    image: mysql:8.0
+    image: mysql:9.5
     container_name: {{ cookiecutter.project_slug }}-mysql
     environment:
       MYSQL_DATABASE: ${MYSQL_DB}
@@ -110,7 +110,7 @@ services:
       - {{ cookiecutter.project_slug }}-network
 
   mysql-test:
-    image: mysql:8.0
+    image: mysql:9.5
     container_name: {{ cookiecutter.project_slug }}-mysql-test
     environment:
       MYSQL_DATABASE: {{ cookiecutter.database_name }}_test
