@@ -11,7 +11,7 @@ dependencies = [
 {% if cookiecutter.use_cache == "tarantool" %}    "tarantool==2.8.0",{% endif %}
 {% if cookiecutter.use_cache == "dragonfly" %}    "redis==5.0.0",{% endif %}
     "dishka==1.7.2",
-    "fastapi==0.117.1",
+    "fastapi==0.120.3",
 {% if cookiecutter.use_broker == "kafka" %}    "faststream[kafka]==0.5.48",{% endif %}
 {% if cookiecutter.use_broker == "rabbitmq" %}    "faststream[rabbit]==0.5.48",{% endif %}
 {% if cookiecutter.use_broker == "nats" %}    "faststream[nats]==0.5.48",{% endif %}
