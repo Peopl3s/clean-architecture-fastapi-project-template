@@ -18,7 +18,7 @@ dependencies = [
     "granian==2.5.6",
     "httpx==0.28.1",
 {% if cookiecutter.use_database == "postgresql" %}    "asyncpg==0.29.0",{% endif %}
-{% if cookiecutter.use_database == "sqlite" %}    "aiosqlite==0.20.0",{% endif %}
+{% if cookiecutter.use_database == "sqlite" %}    "aiosqlite==0.21.0",{% endif %}
 {% if cookiecutter.use_database == "mysql" %}    "aiomysql==0.3.2",{% endif %}
     "greenlet==3.0.0",
     "pydantic==2.11.9",
