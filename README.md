@@ -19,6 +19,7 @@ A comprehensive cookiecutter template for creating modern FastAPI applications w
 - **Clean Architecture**: Domain-Driven Design with clear separation of concerns
 - **FastAPI**: High-performance async web framework
 - **SQLAlchemy**: Modern ORM with async support
+- **Unit of Work**: Transaction management and coordination
 - **Database Support**: Optional database support (PostgreSQL/SQLite/MySQL)
 - **Alembic**: Database migration management
 - **Docker**: Complete containerization with Docker Compose
@@ -254,6 +255,113 @@ The template follows **Clean Architecture** principles with clear separation of 
 - **Message Brokers**: External service integrations using dictionary serialization
 - **HTTP Clients**: External API integrations using dictionary serialization
 - **Infrastructure Mappers**: Convert between application DTOs and dictionaries for external API communication, handle JSON serialization
+
+## 🔄 Unit of Work
+
+The template includes a **Unit of Work** implementation that provides transaction management and coordination for database operations.
+
+### 🎯 Key Features
+
+#### **Transaction Management**
+- **Atomic Operations**: All changes are committed or rolled back as a single unit
+- **Context Manager Support**: Automatic transaction management with async context managers
+- **Error Handling**: Automatic rollback on transaction failures
+- **Async Support**: Full async/await support for modern Python applications
+
+## 🔄 Advanced Unit of Work with Identity Map
+
+The template also includes an advanced **Unit of Work** implementation that follows the **Identity Map** pattern for efficient change tracking and transaction management.
+
+### 🎯 Key Features
+
+#### **Identity Map Pattern**
+- **Object Tracking**: Maintains a map of all objects loaded during a business transaction
+- **Change Detection**: Automatically tracks modifications to registered objects
+- **Duplicate Prevention**: Ensures each object is loaded only once per transaction
+- **Performance Optimization**: Reduces database queries and prevents unnecessary updates
+
+#### **Automatic Dirty Tracking**
+- **UoWModel Wrapper**: Special wrapper class that automatically marks objects as dirty when modified
+- **Transparent Integration**: Works seamlessly with existing domain models
+- **Attribute Monitoring**: Intercepts attribute changes and registers objects for updates
+
+#### **Transaction Management**
+- **Atomic Operations**: All changes are committed or rolled back as a single unit
+- **Batch Processing**: Optimizes database operations by batching inserts, updates, and deletes
+- **Error Handling**: Automatic rollback on transaction failures
+
+### 🏗️ Architecture
+
+```python
+# Core Unit of Work implementation
+class UnitOfWork:
+    def __init__(self):
+        self.dirty = {}      # Modified objects
+        self.new = {}        # New objects to insert
+        self.deleted = {}    # Objects to delete
+        self.mappers = {}    # Database mappers
+
+    def register_new(self, model) -> UoWModel:
+        """Register a new model and return a tracked wrapper."""
+        
+    def register_dirty(self, model) -> None:
+        """Mark a model as modified."""
+        
+    def register_deleted(self, model) -> None:
+        """Mark a model for deletion."""
+        
+    def commit(self) -> None:
+        """Commit all changes to the database."""
+```
+
+### 📝 Usage Examples
+
+#### **Basic Usage**
+```python
+# Create Unit of Work
+uow = UnitOfWork()
+
+# Register new entity
+artifact = ArtifactModel(name="Ancient Vase", era="ANCIENT")
+uow_artifact = uow.register_new(artifact)
+
+# Modify through wrapper (automatically tracked)
+uow_artifact.name = "Updated Ancient Vase"
+
+# Commit all changes
+uow.commit()
+```
+
+#### **Custom Mappers**
+```python
+# Register custom mappers for different model types
+uow.register_mapper(CustomModel, CustomModelMapper(session))
+
+# The Unit of Work will use appropriate mappers for each model type
+```
+
+### 🔧 Implementation Details
+
+#### **UoWModel Wrapper**
+- **Transparent Proxy**: Acts as a proxy to the underlying model
+- **Change Detection**: Intercepts attribute modifications
+- **Automatic Registration**: Automatically registers objects as dirty when modified
+- **Type Safety**: Maintains type hints and IDE support
+
+#### **Database Mapper Protocol**
+- **Standardized Interface**: `DbMapperProtocol` defines the contract for all mappers
+- **CRUD Operations**: Standard `insert`, `update`, `delete` methods
+- **Extensibility**: Easy to add new mappers for different model types
+- **Testability**: Protocol-based design enables easy mocking
+
+### 🎯 Benefits
+
+1. **Performance**: Reduces database queries through intelligent change tracking
+2. **Consistency**: Ensures data consistency through atomic transactions
+3. **Simplicity**: Easy-to-use API with automatic change detection
+4. **Flexibility**: Extensible mapper system for different data sources
+5. **Reliability**: Comprehensive error handling and rollback support
+6. **Testability**: Protocol-based design enables easy testing and mocking
 
 ## 🔄 Alternative Naming Conventions in Clean Architecture
 
