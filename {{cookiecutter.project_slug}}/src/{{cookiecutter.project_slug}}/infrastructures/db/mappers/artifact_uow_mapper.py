@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 class ArtifactUoWMapper(DbMapperProtocol[ArtifactModel]):
     """
     Mapper for ArtifactModel that works with Unit of Work pattern.
-    
+
     This mapper handles database operations for ArtifactModel instances
     tracked by the Unit of Work.
     """

@@ -303,13 +303,13 @@ class UnitOfWork:
 
     def register_new(self, model) -> UoWModel:
         """Register a new model and return a tracked wrapper."""
-        
+
     def register_dirty(self, model) -> None:
         """Mark a model as modified."""
-        
+
     def register_deleted(self, model) -> None:
         """Mark a model for deletion."""
-        
+
     def commit(self) -> None:
         """Commit all changes to the database."""
 ```
