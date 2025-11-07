@@ -21,7 +21,7 @@ dependencies = [
 {% if cookiecutter.use_database == "sqlite" %}    "aiosqlite==0.21.0",{% endif %}
 {% if cookiecutter.use_database == "mysql" %}    "aiomysql==0.3.2",{% endif %}
     "greenlet==3.2.4",
-    "pydantic==2.12.3",
+    "pydantic==2.12.4",
     "pydantic-settings==2.11.0",
     "sqlalchemy==2.0.44",
     "stamina==25.1.0",
