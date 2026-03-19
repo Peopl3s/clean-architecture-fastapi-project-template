@@ -217,7 +217,7 @@ services:
 
 {% if cookiecutter.use_broker == "kafka" %}
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.9.4
+    image: confluentinc/cp-zookeeper:7.9.6
     container_name: {{ cookiecutter.project_slug }}-zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
