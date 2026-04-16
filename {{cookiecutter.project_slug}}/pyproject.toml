@@ -323,7 +323,7 @@ filterwarnings = [
 dev = [
     # Linting and formatting
     "ruff==0.13.1",
-    "black==23.12.0",
+    "black==26.3.1",
     "isort==8.0.1",
 
     # Type checking
