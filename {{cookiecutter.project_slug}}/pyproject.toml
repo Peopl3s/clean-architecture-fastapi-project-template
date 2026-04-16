@@ -335,7 +335,7 @@ dev = [
     # Testing
     "pytest==8.4.2",
     "pytest-asyncio==0.21.0",
-    "pytest-cov==4.1.0",
+    "pytest-cov==7.1.0",
     "Faker==40.13.0",
     "polyfactory==2.11.0; python_version >= '3.12' and python_version < '4.0'",
 ]
