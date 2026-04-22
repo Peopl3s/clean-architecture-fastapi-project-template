@@ -327,7 +327,7 @@ dev = [
     "isort==8.0.1",
 
     # Type checking
-    "mypy==1.5.0",
+    "mypy==1.20.2",
     "types-requests==2.31.0",
     "types-redis==4.6.0",
     "types-setuptools==82.0.0.20260408",
