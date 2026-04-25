@@ -322,7 +322,7 @@ filterwarnings = [
 [dependency-groups]
 dev = [
     # Linting and formatting
-    "ruff==0.13.1",
+    "ruff==0.15.12",
     "black==26.3.1",
     "isort==8.0.1",
 
