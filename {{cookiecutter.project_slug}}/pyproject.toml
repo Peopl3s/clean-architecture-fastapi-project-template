@@ -333,7 +333,7 @@ dev = [
     "types-setuptools==82.0.0.20260408",
 
     # Testing
-    "pytest==8.4.2",
+    "pytest==9.1.1",
     "pytest-asyncio==0.21.0",
     "pytest-cov==4.1.0",
     "Faker==40.13.0",
