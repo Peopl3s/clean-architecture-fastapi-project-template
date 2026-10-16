@@ -1,7 +1,7 @@
 # =============================================================================
 # Stage 1: Base image with system dependencies
 # =============================================================================
-FROM python:3.14-slim-bookworm AS base
+FROM python:3.15-slim-bookworm AS base
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
